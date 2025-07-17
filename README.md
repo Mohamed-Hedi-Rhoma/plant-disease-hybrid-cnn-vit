@@ -43,16 +43,16 @@ python train_pipeline.py
 ```
 The training script will:
 
-Load your configured settings
-Preprocess the scraped data
-Train the hybrid CNN-ViT model
-Save checkpoints and training results
+- Load your configured settings
+- Preprocess the scraped data
+- Train the hybrid CNN-ViT model
+- Save checkpoints and training results
 
 ## Usage Summary
 
-Run python dataset/get_data.py to scrape plant disease data from iNaturalist
-Edit disease list in the scraping script based on available images
-Configure model parameters in config.py
-Start training with python train_pipeline.py
+- Run python dataset/get_data.py to scrape plant disease data from iNaturalist
+- Edit disease list in the scraping script based on available images
+- Configure model parameters in config.py
+- Start training with python train_pipeline.py
 
 
