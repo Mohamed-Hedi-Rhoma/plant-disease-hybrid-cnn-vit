@@ -31,10 +31,10 @@ pixi install
 ## Configuration
 Before training, configure your model settings in the config.py file:
 
-Number of disease classes
-Batch size and learning rate
-Model architecture parameters (embedding dimensions, number of layers, etc.)
-Training epochs and other hyperparameters
+- Number of disease classes
+- Batch size and learning rate
+- Model architecture parameters (embedding dimensions, number of layers, etc.)
+- Training epochs and other hyperparameters
 
 ## Training
 To train the model with your configuration:
