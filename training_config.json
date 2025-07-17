@@ -1,0 +1,102 @@
+{
+  "model_name": "HybridCNNViT",
+  "model_version": "v1.0",
+  "task": "plant_disease_classification",
+  "num_classes": 15,
+  "data_config": {
+    "data_dir": "/home/mrhouma/Documents/Plant_diseases_project/ai_training_data",
+    "target_size": 384,
+    "min_samples_per_class": 1500,
+    "clean_augmented": true,
+    "test_size": 0.15,
+    "val_size": 0.176,
+    "random_seed": 42,
+    "batch_size": 32,
+    "num_workers": 4,
+    "pin_memory": true,
+    "use_weighted_sampling": true,
+    "augment_rotation_degrees": 15.0,
+    "augment_brightness": 0.2,
+    "augment_contrast": 0.2,
+    "augment_saturation": 0.2,
+    "augment_translate": [
+      0.1,
+      0.1
+    ]
+  },
+  "cnn_config": {
+    "in_channels": 3,
+    "out_channels": 256,
+    "conv1_out_channels": 64,
+    "conv2_out_channels": 128,
+    "conv3_out_channels": 256,
+    "kernel_size": 3,
+    "stride": 1,
+    "padding": 1,
+    "bias": false,
+    "pool_kernel_size": 2,
+    "pool_stride": 2,
+    "dropout_rate": 0.1,
+    "init_mode": "kaiming_normal",
+    "init_nonlinearity": "relu"
+  },
+  "patch_config": {
+    "feature_size": 48,
+    "in_channels": 256,
+    "patch_size": 8,
+    "embed_dim": 512,
+    "dropout_rate": 0.1,
+    "use_position_embeddings": true,
+    "position_embed_init_std": 0.02,
+    "init_mode": "kaiming_normal",
+    "conv_bias": true
+  },
+  "vit_config": {
+    "embed_dim": 512,
+    "num_layers": 6,
+    "num_heads": 8,
+    "mlp_ratio": 4.0,
+    "num_classes": 15,
+    "dropout_rate": 0.1,
+    "droppath_rate": 0.1,
+    "classifier_dropout_rate": 0.5,
+    "use_classifier_dropout": true,
+    "transformer_config": {
+      "embed_dim": 512,
+      "num_heads": 8,
+      "mlp_ratio": 4.0,
+      "dropout_rate": 0.1,
+      "droppath_rate": 0.1,
+      "layer_norm_eps": 1e-06,
+      "pre_norm": true,
+      "attention_config": {
+        "embed_dim": 512,
+        "num_heads": 8,
+        "dropout_rate": 0.1,
+        "attention_dropout_rate": 0.1,
+        "output_dropout_rate": 0.1,
+        "qkv_bias": true,
+        "output_bias": true,
+        "init_mode": "xavier_uniform"
+      },
+      "mlp_config": {
+        "embed_dim": 512,
+        "mlp_ratio": 4.0,
+        "activation": "gelu",
+        "dropout_rate": 0.1,
+        "init_mode": "xavier_uniform",
+        "bias": true
+      }
+    },
+    "cls_token_config": {
+      "embed_dim": 512,
+      "init_std": 0.02,
+      "init_mode": "trunc_normal"
+    }
+  },
+  "device": "auto",
+  "mixed_precision": true,
+  "compile_model": false,
+  "save_dir": "models",
+  "checkpoint_format": "pytorch"
+}

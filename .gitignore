@@ -1,0 +1,6 @@
+
+# pixi environments
+.pixi
+*.egg-info
+ai_training_data
+models
